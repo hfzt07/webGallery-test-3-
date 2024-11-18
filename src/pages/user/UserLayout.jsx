@@ -13,6 +13,9 @@ const MainContent = styled.main`
   flex: 1;
   margin-left: 250px;
   padding: 2rem;
+  background: #1a1a2e;
+  min-height: 100vh;
+  color: white;
 `;
 
 function UserLayout() {

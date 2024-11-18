@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -45,59 +45,61 @@ import InternetDetail from './pages/fasilitas/InternetDetail';
 
 function App() {
   return (
-    <LoginProvider>
-      <div className="App" style={{ background: '#1a1a2e' }}>
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Navbar />
-              <Hero />
-              <Profil />
-              <Program />
-              <Fasilitas />
-              <Footer />
-            </>
-          } />
-          <Route path="/admin/*" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="users" element={<ModManagement />} />
-            <Route path="students-teachers" element={<SiswaGuru />} />
-            <Route path="news" element={<BeritaSekolah />} />
-            <Route path="program-news" element={<BeritaProgram />} />
-            <Route path="extra-news" element={<BeritaEkskul />} />
-          </Route>
-          <Route path="/user/*" element={<UserLayout />}>
-            <Route index element={<UserDashboard />} />
-            <Route path="profil" element={<UserProfile />} />
-            <Route path="profil/settings" element={<UserProfileSettings />} />
-            <Route path="nilai" element={<UserNilai />} />
-            <Route path="absensi" element={<UserAbsensi />} />
-            <Route path="jadwal" element={<UserJadwal />} />
-            <Route path="posting" element={<PostingFoto />} />
-          </Route>
-          <Route path="/moderator/*" element={<ModeratorLayout />}>
-            <Route path="profile" element={<ModeratorProfile />} />
-            <Route path="posting-berita" element={<PostingBerita />} />
-          </Route>
-          <Route path="/school-detail" element={<SchoolDetail />} />
-          <Route path="/kepsek-detail" element={<KepsekDetail />} />
-          <Route path="/visi-misi" element={<VisiMisi />} />
-          <Route path="/akademik-detail" element={<AkademikDetail />} />
-          <Route path="/karakter-detail" element={<KarakterDetail />} />
-          <Route path="/ekstrakurikuler-detail" element={<EkstrakurikulerDetail />} />
-          <Route path="/perpus-detail" element={<PerpusDetail />} />
-          <Route path="/lab-komputer-detail" element={<LabKomputerDetail />} />
-          <Route path="/studio-detail" element={<StudioDetail />} />
-          <Route path="/jaringan-detail" element={<JaringanDetail />} />
-          <Route path="/aula-detail" element={<AulaDetail />} />
-          <Route path="/lapangan-detail" element={<LapanganDetail />} />
-          <Route path="/kantin-detail" element={<KantinDetail />} />
-          <Route path="/taman-detail" element={<TamanDetail />} />
-          <Route path="/internet-detail" element={<InternetDetail />} />
-        </Routes>
-        <Login />
-      </div>
-    </LoginProvider>
+    <Router basename="/webGallery-18-11-24-/">
+      <LoginProvider>
+        <div className="App" style={{ background: '#1a1a2e' }}>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Navbar />
+                <Hero />
+                <Profil />
+                <Program />
+                <Fasilitas />
+                <Footer />
+              </>
+            } />
+            <Route path="/admin/*" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="users" element={<ModManagement />} />
+              <Route path="students-teachers" element={<SiswaGuru />} />
+              <Route path="news" element={<BeritaSekolah />} />
+              <Route path="program-news" element={<BeritaProgram />} />
+              <Route path="extra-news" element={<BeritaEkskul />} />
+            </Route>
+            <Route path="/user/*" element={<UserLayout />}>
+              <Route index element={<UserDashboard />} />
+              <Route path="profil" element={<UserProfile />} />
+              <Route path="profil/settings" element={<UserProfileSettings />} />
+              <Route path="nilai" element={<UserNilai />} />
+              <Route path="absensi" element={<UserAbsensi />} />
+              <Route path="jadwal" element={<UserJadwal />} />
+              <Route path="posting" element={<PostingFoto />} />
+            </Route>
+            <Route path="/moderator/*" element={<ModeratorLayout />}>
+              <Route path="profile" element={<ModeratorProfile />} />
+              <Route path="posting-berita" element={<PostingBerita />} />
+            </Route>
+            <Route path="/school-detail" element={<SchoolDetail />} />
+            <Route path="/kepsek-detail" element={<KepsekDetail />} />
+            <Route path="/visi-misi" element={<VisiMisi />} />
+            <Route path="/akademik-detail" element={<AkademikDetail />} />
+            <Route path="/karakter-detail" element={<KarakterDetail />} />
+            <Route path="/ekstrakurikuler-detail" element={<EkstrakurikulerDetail />} />
+            <Route path="/perpus-detail" element={<PerpusDetail />} />
+            <Route path="/lab-komputer-detail" element={<LabKomputerDetail />} />
+            <Route path="/studio-detail" element={<StudioDetail />} />
+            <Route path="/jaringan-detail" element={<JaringanDetail />} />
+            <Route path="/aula-detail" element={<AulaDetail />} />
+            <Route path="/lapangan-detail" element={<LapanganDetail />} />
+            <Route path="/kantin-detail" element={<KantinDetail />} />
+            <Route path="/taman-detail" element={<TamanDetail />} />
+            <Route path="/internet-detail" element={<InternetDetail />} />
+          </Routes>
+          <Login />
+        </div>
+      </LoginProvider>
+    </Router>
   );
 }
 
