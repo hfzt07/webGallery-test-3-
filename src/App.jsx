@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, HashRouter as Router } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -45,7 +45,7 @@ import InternetDetail from './pages/fasilitas/InternetDetail';
 
 function App() {
   return (
-    <Router basename="/webGallery-18-11-24-/">
+    <Router>
       <LoginProvider>
         <div className="App" style={{ background: '#1a1a2e' }}>
           <Routes>
