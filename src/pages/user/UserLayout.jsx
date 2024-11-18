@@ -2,7 +2,6 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
 import UserSidebar from './UserSidebar';
-import UserHeader from './UserHeader';
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -12,16 +11,14 @@ const LayoutContainer = styled.div`
 
 const MainContent = styled.main`
   flex: 1;
-  padding: 2rem;
   margin-left: 250px;
-  margin-top: 70px;
+  padding: 2rem;
 `;
 
 function UserLayout() {
   return (
     <LayoutContainer>
       <UserSidebar />
-      <UserHeader />
       <MainContent>
         <Outlet />
       </MainContent>

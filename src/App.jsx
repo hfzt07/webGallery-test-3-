@@ -18,7 +18,8 @@ import BeritaProgram from './pages/admin/ProgramNews';
 import BeritaEkskul from './pages/admin/ExtraNews';
 import UserLayout from './pages/user/UserLayout';
 import UserDashboard from './pages/user/Dashboard';
-import UserProfile from './pages/user/Profile';
+import UserProfile from './pages/user/UserProfile';
+import UserProfileSettings from './pages/user/UserProfileSettings';
 import UserNilai from './pages/user/Nilai';
 import UserAbsensi from './pages/user/Absensi';
 import UserJadwal from './pages/user/Jadwal';
@@ -67,7 +68,8 @@ function App() {
           </Route>
           <Route path="/user/*" element={<UserLayout />}>
             <Route index element={<UserDashboard />} />
-            <Route path="profile" element={<UserProfile />} />
+            <Route path="profil" element={<UserProfile />} />
+            <Route path="profil/settings" element={<UserProfileSettings />} />
             <Route path="nilai" element={<UserNilai />} />
             <Route path="absensi" element={<UserAbsensi />} />
             <Route path="jadwal" element={<UserJadwal />} />

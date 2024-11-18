@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { db } from '../config/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
 const LoginContext = createContext();
@@ -16,24 +16,30 @@ export function LoginProvider({ children }) {
     try {
       setLoading(true);
       
-      const querySnapshot = await getDocs(collection(db, 'akun'));
+      const akunRef = collection(db, 'akun');
+      const q = query(akunRef, where('usernameAkun', '==', username));
       
-      const userDoc = querySnapshot.docs.find(doc => {
-        const data = doc.data();
-        return data.usernameAkun === username && data.passwordAkun === password;
-      });
+      const querySnapshot = await getDocs(q);
+      console.log('Query result:', querySnapshot.size);
 
-      if (!userDoc) {
-        return { success: false, error: 'Username atau password salah' };
+      if (querySnapshot.empty) {
+        return { success: false, error: 'Username tidak ditemukan' };
       }
 
+      const userDoc = querySnapshot.docs[0];
       const userData = userDoc.data();
-      
+
+      if (userData.passwordAkun !== password) {
+        return { success: false, error: 'Password salah' };
+      }
+
       const userInfo = {
         id: userDoc.id,
         username: userData.usernameAkun,
-        role: userData.jenisAkun
+        role: userData.jenisAkun,
       };
+
+      console.log('User info:', userInfo);
 
       localStorage.setItem('user', JSON.stringify(userInfo));
       setUser(userInfo);
@@ -50,15 +56,11 @@ export function LoginProvider({ children }) {
         default:
           navigate('/user');
       }
-
       return { success: true };
 
     } catch (error) {
       console.error('Login error:', error);
-      return { 
-        success: false, 
-        error: 'Terjadi kesalahan saat login. Silakan coba lagi.' 
-      };
+      return { success: false, error: 'Terjadi kesalahan saat login' };
     } finally {
       setLoading(false);
     }

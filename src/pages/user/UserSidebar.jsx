@@ -101,7 +101,7 @@ function UserSidebar() {
         <NavItem to="/user" end>
           <FaHome /> Beranda
         </NavItem>
-        <NavItem to="/user/profile">
+        <NavItem to="/user/profil">
           <FaUser /> Profil
         </NavItem>
         <NavItem to="/user/nilai">
