@@ -224,7 +224,7 @@ function UserProfile() {
           <h2>Anda Belum Atur Profil</h2>
           <p>Atur profil Anda untuk mulai berbagi momen</p>
           <SetupButton
-            onClick={() => navigate('/user/profil/settings')}
+            onClick={() => navigate('/user/settings')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
